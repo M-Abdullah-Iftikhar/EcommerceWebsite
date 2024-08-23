@@ -22,6 +22,9 @@ app.use(cors());
 app.get("/",(req,res)=>{
     res.send("Express app is running ")
 })
+app.get("/practice",(req,res) => {
+  res.send("Hello i am runnind")
+})
 
 // Products Routes..........................
 
