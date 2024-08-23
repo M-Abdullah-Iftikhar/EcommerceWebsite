@@ -15,6 +15,9 @@ router.post("/deleteProducts", deleteProduct);
 router.get("/allProducts", getAllProduct);
 router.get("/newcollections", getnewCollection);
 router.get("/popularwomen", popularInWomen);
+router.get("/practice",(req,res) => {
+  res.send("Hello i am runnind")
+})
 router.post("/addtocart", fetchUser, async (req, res) => {
   try {
     const userid = req.user.user.id;
