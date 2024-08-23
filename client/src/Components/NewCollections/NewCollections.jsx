@@ -9,7 +9,7 @@ const NewCollections = () => {
   const [newcollection, setnewcollection] = useState([])
 
 const fetchdata =  async() => {
-  const response = await fetch('http://localhost:8000/newcollections')
+  const response = await fetch('https://hopifyecommerce.onrender.com/newcollections')
  const data = await response.json()
  const newcollec = data.newcollection
  setnewcollection(newcollec)
