@@ -5,7 +5,7 @@ const ListProducts = () => {
   const [products, setproducts] = useState([]);
 
   const fetchProducts = async () => {
-    const response = await fetch("http://localhost:8000/allproducts");
+    const response = await fetch("https://hopifyecommerce.onrender.com/allproducts");
     console.log(response);
     let allproducts = await response.json();
     allproducts = allproducts.product;
@@ -14,7 +14,7 @@ const ListProducts = () => {
   };
 
   const deleteProduct = async (id) => {
-    const response = await fetch('http://localhost:8000/deleteProducts',{
+    const response = await fetch('https://hopifyecommerce.onrender.com/deleteProducts',{
         method:"POST",
         headers:{
             'Content-Type':"application/json"
