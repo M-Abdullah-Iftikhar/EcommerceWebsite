@@ -5,7 +5,7 @@ const ListProducts = () => {
   const [products, setproducts] = useState([]);
 
   const fetchProducts = async () => {
-    const response = await fetch("https://hopifyecommerce.onrender.com/allProducts");
+    const response = await fetch("https://hopifyecommerce.onrender.com/allproducts");
     console.log(response);
     let allproducts = await response.json();
     allproducts = allproducts.product;
