@@ -2,10 +2,14 @@ const express = require("express");
 const cors = require('cors');
 const {connecttomongoose} = require('./db');
 const multer = require('multer');
-const port=8000;
 const path = require('path')
 const ProductRouter = require('./Routes/Product')
 const UserRouter = require("./Routes/User")
+const dotenv = require('dotenv') 
+dotenv.config()
+
+
+const port = process.env.PORT || 8000;
 
 // App use......................................
 
