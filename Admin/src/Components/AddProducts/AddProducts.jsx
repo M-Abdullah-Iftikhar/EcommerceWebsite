@@ -47,7 +47,7 @@ const AddProducts = () => {
 
             ProductData.image = data.image_url;
             console.log(product)
-            const response2 = await fetch('https://hopifyecommerce.onrender.com/addProducts',{
+            const response2 = await fetch('https://hopifyecommerce.onrender.com/addproducts',{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
