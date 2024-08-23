@@ -19,7 +19,7 @@ router.get("/practice",(req,res) => {
   res.send("Hello i am runnind")
 })
 router.get("/hamza",(req,res) => {
-  res.send("Hello i am runnind")
+  res.send("Hello i am running")
 })
 router.post("/addtocart", fetchUser, async (req, res) => {
   try {
