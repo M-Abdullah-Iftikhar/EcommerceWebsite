@@ -20,7 +20,7 @@ app.use(cors());
 // api routes
 
 app.get("/",(req,res)=>{
-    res.send("Express app is running ")
+    res.send("Express app is running and other? ")
 })
 app.get("/practice",(req,res) => {
   res.send("Hello i am runnind")
