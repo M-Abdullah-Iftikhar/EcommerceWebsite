@@ -6,7 +6,7 @@ const Popular = () => {
     const [popularWomen, setpopularWomen] = useState([])
   
   const fetchdata =  async() => {
-    const response = await fetch('http://localhost:8000/popularwomen')
+    const response = await fetch('https://hopifyecommerce.onrender.com/popularwomen')
    const data = await response.json()
    const popwomen = data.popularWomen
    setpopularWomen(popwomen)
