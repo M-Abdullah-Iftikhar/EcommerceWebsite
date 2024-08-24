@@ -1,6 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
+import {useNavigate} from "react-router-dom"
+
+
 
 export const ShopContext = createContext(null);
+
 const getDefaultCart = () => {
   const cart = {};
   for (let index = 0; index < 300 + 1; index++) {
@@ -56,6 +60,11 @@ const ShopContextProvider = (props) => {
   }, []);
   console.log(cartItem);
   const addtocart = async (itemId) => {
+    if(!localStorage.getItem('token')){
+      alert("First login")
+      window.location.replace("/login")
+      return;
+    }
     setcartItem((prev) => ({
       ...prev,
       [itemId]: (prev[itemId] || 0) + 1,

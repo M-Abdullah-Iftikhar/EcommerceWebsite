@@ -1,7 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import React, { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../Context/ShopContext";
-import dropdown from '../Components/Assets/dropdown_icon.png';
 import dropdown from '../Components/Assets/dropdown_icon.png';
 import Items from "../Components/Items/Items";
 import Footer from "../Components/Footer/Footer";
@@ -11,14 +9,6 @@ const ShopCategory = (props) => {
   const { allproduct } = useContext(ShopContext);
   const [loading, setLoading] = useState(true); 
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000); 
-  }, [props.category]);
-
-  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     setLoading(true);
