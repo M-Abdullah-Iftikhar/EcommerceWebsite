@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../Context/ShopContext";
+import dropdown from '../Components/Assets/dropdown_icon.png';
 import dropdown from '../Components/Assets/dropdown_icon.png';
 import Items from "../Components/Items/Items";
 import Footer from "../Components/Footer/Footer";
@@ -16,9 +18,19 @@ const ShopCategory = (props) => {
     }, 1000); 
   }, [props.category]);
 
+  const [loading, setLoading] = useState(true); 
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000); 
+  }, [props.category]);
+
   const gradientStyle = {
     background: 'linear-gradient(90deg, rgba(255,196,0,0.6223739495798319) 1%, rgba(243,210,33,0.5495448179271709) 38%, rgba(243,241,237,0.8436624649859944) 69%)',
   };
+
 
   return (
     <section>
