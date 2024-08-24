@@ -3,7 +3,6 @@ import { ShopContext } from "../Context/ShopContext";
 import dropdown from '../Components/Assets/dropdown_icon.png';
 import Items from "../Components/Items/Items";
 import Footer from "../Components/Footer/Footer";
-import Loader from "../Components/Loader/Loader";
 
 const ShopCategory = (props) => {
   const { allproduct } = useContext(ShopContext);
