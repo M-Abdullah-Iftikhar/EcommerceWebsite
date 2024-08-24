@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { Link,useNaviagte } from "react-router-dom";
 
 const SignUp = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [FormData, setFormData] = useState({
     name:'',
     email:'',
@@ -27,7 +27,8 @@ const SignUp = () => {
     const {success,message,error} = data
     if(success){
       alert(message)
-      navigate('/login')
+      // navigate('/login')
+      window.location.replace("login")
     }
     if(!success){
       alert(error)
