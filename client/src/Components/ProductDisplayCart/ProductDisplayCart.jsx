@@ -1,9 +1,9 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
 
 const ProductDisplayCart = (props) => {
   const { product } = props;
-  const {addtocart} = useContext(ShopContext)
+  const { addtocart } = useContext(ShopContext);
   return (
     <div class="bg-gray-100">
       <div class=" px-4 py-8">
@@ -154,9 +154,11 @@ const ProductDisplayCart = (props) => {
             </div>
 
             <div class="flex space-x-4 mb-6">
-              <button 
-              onClick={()=> addtocart(product.id)}
-              class="bg-red-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+              <button
+                onClick={() => addtocart(product.id)}
+                class={`bg-red-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2`}
+                disabled={!localStorage.getItem('token')}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -174,17 +176,6 @@ const ProductDisplayCart = (props) => {
                 Add to Cart
               </button>
             </div>
-            
-
-            {/* <div>
-              <h3 class="text-lg font-semibold mb-2">Key Features:</h3>
-              <ul class="list-disc list-inside text-gray-700">
-                <li>Industry-leading noise cancellation</li>
-                <li>30-hour battery life</li>
-                <li>Touch sensor controls</li>
-                <li>Speak-to-chat technology</li>
-              </ul>
-            </div> */}
           </div>
         </div>
       </div>

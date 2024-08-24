@@ -8,7 +8,7 @@ import Loader from "../Components/Loader/Loader";
 const ShopCategory = (props) => {
   const { allproduct } = useContext(ShopContext);
   const [loading, setLoading] = useState(true); 
-
+  const [visibleCount, setVisibleCount] = useState(8); 
 
   useEffect(() => {
     setLoading(true);
@@ -17,10 +17,20 @@ const ShopCategory = (props) => {
     }, 1000); 
   }, [props.category]);
 
+  const handleExploreMore = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setVisibleCount((prevCount) => prevCount + 4); 
+      setLoading(false);
+    }, 1000);
+  };
+
   const gradientStyle = {
     background: 'linear-gradient(90deg, rgba(255,196,0,0.6223739495798319) 1%, rgba(243,210,33,0.5495448179271709) 38%, rgba(243,241,237,0.8436624649859944) 69%)',
   };
 
+  const filteredProducts = allproduct.filter(item => item.category === props.category);
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
 
   return (
     <section>
@@ -56,7 +66,7 @@ const ShopCategory = (props) => {
           <section>
             <div className="flex flex-col sm:flex-row gap-4 justify-evenly items-center mt-10">
               <div>
-                <p><span className="font-bold">Showing 1-12</span> Out of 36 Results</p>
+                <p><span className="font-bold">Showing 1-{visibleProducts.length}</span> Out of {filteredProducts.length} Results</p>
               </div>
               <div className="cursor-pointer flex justify-center items-center gap-2 w-28 h-12 rounded-l-full rounded-r-full border border-[#7a7a7a]">
                 <p>Sort by</p>
@@ -64,28 +74,27 @@ const ShopCategory = (props) => {
               </div>
             </div>
             <div className="flex flex-wrap gap-7 justify-center">
-              {allproduct.map((item, i) => {
-                if (props.category === item.category) {
-                  return (
-                    <Items
-                      key={i}
-                      id={item.id}
-                      title={item.name}
-                      newprice={item.new_price}
-                      oldprice={item.old_price}
-                      image={item.image}
-                    />
-                  );
-                } else {
-                  return null;
-                }
-              })}
+              {visibleProducts.map((item, i) => (
+                <Items
+                  key={i}
+                  id={item.id}
+                  title={item.name}
+                  newprice={item.new_price}
+                  oldprice={item.old_price}
+                  image={item.image}
+                />
+              ))}
             </div>
-            <div className="flex justify-center">
-              <button className="w-40 h-12 rounded-r-full rounded-l-full bg-gray-300 text-gray-500 py-2 px-5 mt-20">
-                Explore More
-              </button>
-            </div>
+            {visibleCount < filteredProducts.length && (
+              <div className="flex justify-center">
+                <button 
+                  onClick={handleExploreMore} 
+                  className="w-40 h-12 rounded-r-full rounded-l-full bg-gray-300 text-gray-500 py-2 px-5 mt-20"
+                >
+                  Explore More
+                </button>
+              </div>
+            )}
           </section>
           <Footer />
         </>

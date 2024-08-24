@@ -24,14 +24,14 @@ const SignUp = () => {
       body: JSON.stringify(FormData)
     });
     const data = await response.json();
-    const {success,message,error} = data
+    const {success,message} = data
     if(success){
       alert(message)
       navigate('/login')
        // window.location.replace('login')
     }
     if(!success){
-      alert(error)
+      alert(message)
     }
     setFormData({
       name:'',
