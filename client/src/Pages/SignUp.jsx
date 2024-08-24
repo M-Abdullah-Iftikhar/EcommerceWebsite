@@ -1,8 +1,8 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const [FormData, setFormData] = useState({
     name:'',
     email:'',
@@ -27,8 +27,8 @@ const SignUp = () => {
     const {success,message,error} = data
     if(success){
       alert(message)
-      // navigate('/login')
-       window.location.replace('login')
+      navigate('/login')
+       // window.location.replace('login')
     }
     if(!success){
       alert(error)
