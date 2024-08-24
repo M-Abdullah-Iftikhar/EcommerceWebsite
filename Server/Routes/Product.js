@@ -18,6 +18,9 @@ router.get("/popularwomen", popularInWomen);
 router.get("/practice",(req,res) => {
   res.send("Hello i am runnind")
 })
+router.get("/hamza",(req,res) => {
+  res.send("Hello i am running")
+})
 router.post("/addtocart", fetchUser, async (req, res) => {
   try {
     const userid = req.user.user.id;

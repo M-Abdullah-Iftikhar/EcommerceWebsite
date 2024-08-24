@@ -20,8 +20,9 @@ app.use(cors());
 // api routes
 
 app.get("/",(req,res)=>{
-    res.send("Express app is running ")
+    res.send("Express app is running and other? ")
 })
+
 
 // Products Routes..........................
 
@@ -51,7 +52,7 @@ app.use('/images',express.static("Upload/Images"))
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:true,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`
+        image_url:`https://hopifyecommerce.onrender.com/images/${req.file.filename}`
     })
 })
 

@@ -1,7 +1,8 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [FormData, setFormData] = useState({
     name:'',
     email:'',
@@ -15,7 +16,7 @@ const SignUp = () => {
   const handlesubmit = async (e) => {
     console.log(FormData)
     e.preventDefault();
-    const response = await fetch('http://localhost:8000/signup', {
+    const response = await fetch('https://hopifyecommerce.onrender.com/signup', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -26,7 +27,8 @@ const SignUp = () => {
     const {success,message,error} = data
     if(success){
       alert(message)
-      window.location.replace('/login')
+      navigate('/login')
+       // window.location.replace('login')
     }
     if(!success){
       alert(error)

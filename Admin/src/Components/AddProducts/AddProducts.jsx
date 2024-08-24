@@ -26,7 +26,7 @@ const AddProducts = () => {
         let product = ProductData;
         let formData = new FormData()
         formData.append('product',image)
-        const response = await  fetch('http://localhost:8000/upload',{
+        const response = await  fetch('https://hopifyecommerce.onrender.com/upload',{
             method:"POST",
             headers:{
 
@@ -47,7 +47,7 @@ const AddProducts = () => {
 
             ProductData.image = data.image_url;
             console.log(product)
-            const response2 = await fetch('http://localhost:8000/addproducts',{
+            const response2 = await fetch('https://hopifyecommerce.onrender.com/addproducts',{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
