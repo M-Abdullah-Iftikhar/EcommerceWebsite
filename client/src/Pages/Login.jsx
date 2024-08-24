@@ -67,7 +67,7 @@ const Login = () => {
         </Link>
         
         <h2 className="text-2xl font-bold text-center mb-6" style={{ color: '#626262' }}>
-          Sign Up
+          Sign In
         </h2>
         <form onSubmit={handlesubmit}>
           
