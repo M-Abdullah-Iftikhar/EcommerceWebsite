@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Link,useNaviagte } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   // const navigate = useNavigate()
@@ -28,7 +28,7 @@ const SignUp = () => {
     if(success){
       alert(message)
       // navigate('/login')
-      window.location.replace("login")
+       window.location.replace('login')
     }
     if(!success){
       alert(error)
